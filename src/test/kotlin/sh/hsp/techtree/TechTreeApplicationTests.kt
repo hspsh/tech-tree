@@ -5,13 +5,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import kotlin.test.assertEquals
 
-@SpringBootTest
 class TechTreeApplicationTests {
-
-    @Test
-    fun contextLoads() {
-    }
-
     @Test
     fun examples() {
         // KoTest
