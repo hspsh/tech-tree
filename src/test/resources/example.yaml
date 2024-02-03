@@ -1,0 +1,7 @@
+nodes:
+  - title: "miau"
+    requires:
+      - "kot"
+      - "tygrys"
+  - title: "kot"
+  - title: "tygrys"
