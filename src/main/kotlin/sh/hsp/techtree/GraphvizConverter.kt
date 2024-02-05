@@ -1,6 +1,6 @@
 package sh.hsp.techtree
 
-// Ahiyos
+// Ahiyos - changed
 interface GraphvizConverter {
     fun convert(model: TreeModel, outputPath: String)
 }
