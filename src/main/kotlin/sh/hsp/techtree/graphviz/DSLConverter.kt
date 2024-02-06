@@ -4,7 +4,7 @@ import sh.hsp.techtree.TreeModel
 import sh.hsp.techtree.TreeNode
 import java.util.stream.Collectors
 
-class GraphvizDSLConverter {
+class DSLConverter {
     fun convert(model: TreeModel): String {
          val nodesAsDSL = model.nodes.stream()
             .map { registerNode(it) }

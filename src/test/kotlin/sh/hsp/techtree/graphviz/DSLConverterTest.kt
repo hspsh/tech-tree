@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test
 import sh.hsp.techtree.TreeModel
 import sh.hsp.techtree.TreeNode
 
-class GraphvizDSLConverterTest {
+class DSLConverterTest {
 
     @Test
     fun givenTreeModelWithSingleNodeShouldRegisterSingleNodeInCorrectGrapvizDSL() {
         val model = TreeModel(listOf(TreeNode("node")))
 
-        val converter = GraphvizDSLConverter()
+        val converter = DSLConverter()
 
         val result = converter.convert(model)
 
@@ -22,7 +22,7 @@ class GraphvizDSLConverterTest {
     fun givenTreeModelWithMultipleSingularNodesShouldRegisterAllSingularNodesInCorrectGrapvizDSL() {
         val model = TreeModel(listOf(TreeNode("nodeA"), TreeNode("nodeB"), TreeNode("nodeC")))
 
-        val converter = GraphvizDSLConverter()
+        val converter = DSLConverter()
 
         val result = converter.convert(model)
 
@@ -39,7 +39,7 @@ class GraphvizDSLConverterTest {
             )
         )
 
-        val converter = GraphvizDSLConverter()
+        val converter = DSLConverter()
 
         val result = converter.convert(model)
 
