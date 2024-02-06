@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 import java.net.URL
 
 class YamlReaderTest {
-    private val yamlReader: YamlReader = YamlReaderImplemantion()
+    private val yamlReader: YamlReader = FileSystemYamlReader()
 
     @Test
     fun givenTechTreeYamlWhenParsedThenModelIsCorrect() {
@@ -22,5 +22,4 @@ class YamlReaderTest {
         )
     }
 
-    class YamlReaderImplemantion() : YamlReader
 }
