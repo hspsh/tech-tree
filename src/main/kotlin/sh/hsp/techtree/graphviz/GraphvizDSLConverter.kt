@@ -14,6 +14,13 @@ class GraphvizDSLConverter {
     }
 
     private fun registerNode(node: TreeNode): String {
+        if (node.requires != null) {
+            val pathsToChildren = node.requires.stream()
+                .map { "${node.title} -> $it" }
+                .collect(Collectors.joining(" "))
+            return "${node.title} $pathsToChildren"
+        }
+
         return node.title
     }
 }
