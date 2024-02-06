@@ -2,28 +2,25 @@ package sh.hsp.techtree
 
 import io.kotest.matchers.equals.shouldBeEqual
 import org.junit.jupiter.api.Test
+import java.net.URL
 
 class YamlReaderTest {
-    val yamlReader: YamlReader? = null;
-
+    private val yamlReader: YamlReader = YamlReaderImplemantion()
 
     @Test
     fun givenTechTreeYamlWhenParsedThenModelIsCorrect() {
-        val yamlUrl = YamlReader::class.java.getResource("/example.yaml")
-
-        // !! .?
-        val model = yamlReader!!.readToModel(yamlUrl!!)
-
-        // https://kotlinlang.org/docs/extensions.html
+        val yamlUrl: URL? = YamlReader::class.java.getResource("/example.yaml")
+        val model = yamlReader.readToModel(yamlUrl!!)
         model.shouldBeEqual(
             TreeModel(
                 listOf(
-                    TreeNode("miau", listOf("tygrys", "kot")),
-                    TreeNode("tygrys", listOf()),
-                    TreeNode("kot", listOf())
+                    TreeNode("miau", listOf("kot", "tygrys")),
+                    TreeNode("kot", null),
+                    TreeNode("tygrys", null)
                 )
             )
         )
     }
 
+    class YamlReaderImplemantion() : YamlReader
 }
