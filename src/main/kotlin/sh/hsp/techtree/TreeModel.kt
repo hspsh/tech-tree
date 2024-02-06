@@ -7,5 +7,5 @@ data class TreeModel(
 
 data class TreeNode(
     val title: ID,
-    val requires: List<ID>?
+    val requires: List<ID>? = null
 )
