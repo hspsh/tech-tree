@@ -29,4 +29,21 @@ class GraphvizDSLConverterTest {
         "digraph { nodeA nodeB nodeC }".shouldBe(result)
     }
 
+    @Test
+    fun givenTreeModelWithSingularNodeWithChildrenShouldRegisterNodesInCorrectGrapvizDSL() {
+        val model = TreeModel(
+            listOf(
+                TreeNode("nodeA", listOf("nodeB", "nodeC")),
+                TreeNode("nodeB"),
+                TreeNode("nodeC")
+            )
+        )
+
+        val converter = GraphvizDSLConverter()
+
+        val result = converter.convert(model)
+
+        "digraph { nodeA nodeA -> nodeB nodeA -> nodeC nodeB nodeC }".shouldBe(result)
+    }
+
 }
