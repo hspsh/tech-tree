@@ -15,7 +15,7 @@ class DSLConverterTest {
 
         val result = converter.convert(model)
 
-        "digraph { node }".shouldBe(result)
+        "digraph { edge [dir=\"back\"] node }".shouldBe(result)
     }
 
     @Test
@@ -26,7 +26,7 @@ class DSLConverterTest {
 
         val result = converter.convert(model)
 
-        "digraph { nodeA nodeB nodeC }".shouldBe(result)
+        "digraph { edge [dir=\"back\"] nodeA nodeB nodeC }".shouldBe(result)
     }
 
     @Test
@@ -43,7 +43,7 @@ class DSLConverterTest {
 
         val result = converter.convert(model)
 
-        "digraph { nodeA nodeA -> nodeB nodeA -> nodeC nodeB nodeC }".shouldBe(result)
+        "digraph { edge [dir=\"back\"] nodeA nodeA -> nodeB nodeA -> nodeC nodeB nodeC }".shouldBe(result)
     }
 
 }
