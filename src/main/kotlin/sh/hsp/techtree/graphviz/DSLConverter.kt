@@ -10,7 +10,7 @@ class DSLConverter {
             .map { registerNode(it) }
             .collect(Collectors.joining(" "))
 
-        return "digraph { edge [dir=\"back\"] $nodesAsDSL }"
+        return "digraph { graph [splines=\"ortho\"] edge [dir=\"back\"] $nodesAsDSL }"
     }
 
     private fun registerNode(node: TreeNode): String {
