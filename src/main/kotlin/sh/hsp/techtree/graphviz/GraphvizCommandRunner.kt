@@ -6,7 +6,7 @@ class GraphvizCommandRunnerException(message: String): RuntimeException(message)
 
 class GraphvizCommandRunner {
     fun run(dsl: String) {
-        val command = "echo $dsl | dot -Tsvg"
+        val command = "echo \'$dsl\' | dot -Tsvg"
 
         val result = command.runCommand {  }
 
