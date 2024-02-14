@@ -7,8 +7,8 @@ class TechTreeService(
     private val graphvizConverter: GraphvizConverter
 ) {
 
-    fun execute(inputFile: String) {
-        val model = yamlReader.readToModel(Paths.get(inputFile).toUri().toURL())
+    fun execute(parsedArgs: CommandLineArguments) {
+        val model = yamlReader.readToModel(Paths.get(parsedArgs.inputFile).toUri().toURL())
         graphvizConverter.convert(model, "can be null lol")
     }
 

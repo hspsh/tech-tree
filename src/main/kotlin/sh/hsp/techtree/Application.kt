@@ -14,11 +14,11 @@ class TechTreeApplication(private val commandLineParser: CommandLineParser) : Ap
     }
 
     fun create(args: List<String>) {
-        commandLineParser.run(args) {
+        commandLineParser.run(args) { parsedArgs ->
             TechTreeService(
                 FileSystemYamlReader(),
                 SimpleGraphvizConverter(DSLConverter(), GraphvizCommandRunner())
-            ).execute(it)
+            ).execute(parsedArgs)
         }
     }
 
