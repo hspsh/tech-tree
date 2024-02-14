@@ -7,7 +7,7 @@ class SimpleGraphvizConverter(
     private val dslConverter: DSLConverter,
     private val commandRunner: GraphvizCommandRunner
 ) : GraphvizConverter {
-    override fun convert(model: TreeModel, outputPath: String) {
+    override fun convert(model: TreeModel) {
         val dsl = dslConverter.convert(model)
         commandRunner.run(dsl)
     }
