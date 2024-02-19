@@ -1,5 +1,5 @@
 package sh.hsp.techtree
 
 interface CommandLineParser {
-    fun run(args: List<String>, func: (inputFile: String, outputFile: String) -> Unit)
+    fun run(args: List<String>, func: (parsedArgs: CommandLineArguments) -> Unit)
 }

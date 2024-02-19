@@ -1,22 +1,21 @@
 package sh.hsp.techtree
 
+import sh.hsp.techtree.graphviz.DSLConverter
+import sh.hsp.techtree.graphviz.GraphvizCommandRunner
+import sh.hsp.techtree.graphviz.SimpleGraphvizConverter
+
 interface Application {
     fun run(args: List<String>)
 }
 
-class TechTreeApplication : Application {
+class TechTreeApplication(private val commandLineParser: CommandLineParser) : Application {
     override fun run(args: List<String>) {
-        TODO("Not yet implemented")
+        commandLineParser.run(args) { parsedArgs ->
+            TechTreeService(
+                FileSystemYamlReader(),
+                SimpleGraphvizConverter(DSLConverter(), GraphvizCommandRunner())
+            ).execute(parsedArgs)
+        }
     }
-
-    fun create(args: List<String>) {
-//        CommandParser().run(args, (inputFile, outputFile) -> {
-//            TechTreeService(
-//                YamlReader(),
-//                GraphvizConverter()
-//            ).execute(inputFile, outputFile)
-//        })
-    }
-// java -jar tech-tree.jar inputfile.yaml outputFile.svg
 
 }

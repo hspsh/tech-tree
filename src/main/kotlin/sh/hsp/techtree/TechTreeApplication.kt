@@ -1,8 +1,9 @@
 package sh.hsp.techtree
 
 fun main(args: Array<String>) {
+    createApplication(args.toList())
 }
 
-fun createApplication() {
-
+fun createApplication(args: List<String>) {
+    TechTreeApplication(SimpleCommandLineParser()).create(args)
 }
