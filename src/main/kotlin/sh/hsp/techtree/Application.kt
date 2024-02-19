@@ -10,10 +10,6 @@ interface Application {
 
 class TechTreeApplication(private val commandLineParser: CommandLineParser) : Application {
     override fun run(args: List<String>) {
-        create(args)
-    }
-
-    fun create(args: List<String>) {
         commandLineParser.run(args) { parsedArgs ->
             TechTreeService(
                 FileSystemYamlReader(),
