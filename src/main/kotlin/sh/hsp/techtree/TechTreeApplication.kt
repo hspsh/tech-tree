@@ -5,5 +5,5 @@ fun main(args: Array<String>) {
 }
 
 fun createApplication(args: List<String>) {
-    TechTreeApplication(SimpleCommandLineParser()).create(args)
+    TechTreeApplication(SimpleCommandLineParser()).run(args)
 }
