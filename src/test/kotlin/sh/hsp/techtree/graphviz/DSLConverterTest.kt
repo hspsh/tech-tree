@@ -46,4 +46,21 @@ class DSLConverterTest {
         "digraph { graph [splines=\"ortho\"] node [shape=\"box\"] edge [dir=\"back\"] nodeA nodeA -> nodeB nodeA -> nodeC nodeB nodeC }".shouldBe(result)
     }
 
+    @Test
+    fun givenSpacesInTitleShouldRegisterNodesInCorrectGraphvizDSL() {
+        val model = TreeModel(
+            listOf(
+                TreeNode("Big dog", listOf("Small dog")),
+                TreeNode("Small dog"),
+                TreeNode("Big cat")
+            )
+        )
+
+        val converter = DSLConverter()
+
+        val result = converter.convert(model)
+
+        "digraph { graph [splines=\"ortho\"] node [shape=\"box\"] edge [dir=\"back\"] \"Big dog\" \"Big dog\" -> \"Small dog\" \"Small dog\" \"Big cat\" }".shouldBe(result)
+    }
+
 }
