@@ -16,11 +16,13 @@ class DSLConverter {
     private fun registerNode(node: TreeNode): String {
         if (node.requires != null) {
             val pathsToChildren = node.requires.stream()
-                .map { "${node.title} -> $it" }
+                .map { "${node.title.escaped()} -> ${it.escaped()}" }
                 .collect(Collectors.joining(" "))
-            return "${node.title} $pathsToChildren"
+            return "${node.title.escaped()} $pathsToChildren"
         }
 
-        return node.title
+        return node.title.escaped()
     }
+
+    private fun String.escaped(): String = "\"$this\""
 }
