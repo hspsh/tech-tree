@@ -5,3 +5,5 @@ nodes:
       - "tygrys"
   - title: "kot"
   - title: "tygrys"
+    additional_field_not_meant_to_be_in_yaml_file: "shell"
+additional_field_not_meant_to_be_in_yaml: "void"
