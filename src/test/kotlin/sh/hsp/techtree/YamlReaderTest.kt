@@ -10,7 +10,7 @@ class YamlReaderTest {
     @Test
     fun givenTechTreeYamlWhenParsedThenModelIsCorrect() {
         val yamlUrl: URL? = YamlReader::class.java.getResource("/example.yaml")
-        val model = yamlReader.readToModel(yamlUrl!!)
+        val model = yamlReader.readModel(yamlUrl!!)
         model.shouldBeEqual(
             TreeModel(
                 listOf(

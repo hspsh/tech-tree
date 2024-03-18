@@ -7,9 +7,11 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import java.io.File
 import java.net.URL
 
-class FileSystemYamlReader(private val mapper: ObjectMapper =
-    ObjectMapper(YAMLFactory()).registerKotlinModule()) : YamlReader {
-    override fun readToModel(resource: URL): TreeModel {
+class FileSystemYamlReader(
+    private val mapper: ObjectMapper,
+    private val resource: URL
+) : YamlReader {
+    override fun readModel(): TreeModel {
         return File(resource.toURI())
             .let { mapper.readValue(it, TreeModel::class.java) }
             .also { validate(it) }
