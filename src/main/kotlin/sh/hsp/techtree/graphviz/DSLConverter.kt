@@ -6,7 +6,7 @@ import java.util.stream.Collectors
 
 class DSLConverter {
     fun convert(model: TreeModel): String {
-         val nodesAsDSL = model.nodes.stream()
+        val nodesAsDSL = model.nodes.stream()
             .map { registerNode(it) }
             .collect(Collectors.joining(" "))
 
@@ -14,14 +14,12 @@ class DSLConverter {
     }
 
     private fun registerNode(node: TreeNode): String {
-        if (node.requires != null) {
-            val pathsToChildren = node.requires.stream()
+        val pathsToChildren = node.requires?.apply {
+            stream()
                 .map { "${node.title.escaped()} -> ${it.escaped()}" }
                 .collect(Collectors.joining(" "))
-            return "${node.title.escaped()} ${node.link?.let { "[ href=\"$it\" fontcolor=blue]" } ?: ""} $pathsToChildren"
-        }
-
-        return node.title.escaped()
+        } ?: listOf()
+        return "${node.title.escaped()} ${node.link?.let { "[ href=${it.escaped()} fontcolor=blue]" } ?: ""} $pathsToChildren"
     }
 
     private fun String.escaped(): String = "\"$this\""
