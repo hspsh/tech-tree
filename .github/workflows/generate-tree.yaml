@@ -1,0 +1,12 @@
+name: Generate Tech Tree
+on: [push]
+jobs:
+  generate-tech-tree:
+    runs-on: ubuntu-latest
+    container: ghcr.io/hspsh/tech-tree:issue-10-dockerfile
+    steps:
+      - java -jar /app/app.jar ./src/test/resources/full-example.yaml > tree.svg
+      - cat tree.svg
+  test-files:
+    script:
+      - find . 
