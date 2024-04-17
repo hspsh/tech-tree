@@ -8,6 +8,7 @@ class GraphvizCommandRunner {
     fun run(dsl: String) {
         ProcessBuilder()
             .redirectOutput(ProcessBuilder.Redirect.INHERIT)
+            .redirectError(ProcessBuilder.Redirect.INHERIT)
             .command("dot", "-Tsvg").start()
             .apply {
                 outputStream.writer()
