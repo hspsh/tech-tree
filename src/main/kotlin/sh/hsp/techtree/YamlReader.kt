@@ -1,8 +1,7 @@
 package sh.hsp.techtree
 
-import java.net.URL
+import java.io.InputStream
 
-// Wiliniak
 interface YamlReader {
-    fun readToModel(resource: URL): TreeModel
+    fun readModel(input : InputStream): TreeModel
 }
