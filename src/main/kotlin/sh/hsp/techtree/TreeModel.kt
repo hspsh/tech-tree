@@ -11,5 +11,6 @@ data class TreeModel(
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class TreeNode(
     val title: ID,
-    val requires: List<ID>? = null
+    val requires: List<ID>? = null,
+    val link: String?
 )

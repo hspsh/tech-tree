@@ -18,7 +18,7 @@ class DSLConverter {
             val pathsToChildren = node.requires.stream()
                 .map { "${node.title.escaped()} -> ${it.escaped()}" }
                 .collect(Collectors.joining(" "))
-            return "${node.title.escaped()} $pathsToChildren"
+            return "${node.title.escaped()} ${node.link?.let { "[ href=\"$it\" fontcolor=blue]" } ?: ""} $pathsToChildren"
         }
 
         return node.title.escaped()

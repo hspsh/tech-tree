@@ -21,7 +21,7 @@ nodes:
       - Kubernetes
   - title: Syncronium
     state: broken
-    link: http://example.com
+    link: http://hsp.sh
     docs: https://github.com/hspsh/syncronium
     requires:
       - FluxCD
