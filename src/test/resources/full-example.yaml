@@ -1,4 +1,6 @@
 nodes:
+  - title: Zebra
+    image: zebra.png
   - title: Tech Tree
     state: done
   - title: Outline

@@ -13,5 +13,6 @@ data class TreeModel(
 data class TreeNode(
     val title: ID,
     val requires: List<ID>? = null,
-    val link: String? = null
+    val link: String? = null,
+    val image: String? = null
 )
