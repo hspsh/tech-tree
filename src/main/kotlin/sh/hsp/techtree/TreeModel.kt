@@ -14,5 +14,7 @@ data class TreeNode(
     val title: ID,
     val requires: List<ID>? = null,
     val link: String? = null,
+    val docs: String? = null,
+    val repository: String? = null,
     val image: String? = null
 )
