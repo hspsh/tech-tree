@@ -5,8 +5,8 @@ import sh.hsp.techtree.TreeNode
 import sh.hsp.techtree.freemarker.FreemarkerFactory
 import java.util.stream.Collectors
 
-class DSLConverter(val templating: FreemarkerFactory = FreemarkerFactory()) {
-    fun convert(model: TreeModel): String {
+class DSLConverterImpl(val templating: FreemarkerFactory = FreemarkerFactory()) : DslConverter {
+    override fun convert(model: TreeModel): String {
         val nodesAsDSL = model.nodes.stream()
             .map { registerNode(it) }
             .collect(Collectors.joining(" "))
@@ -20,7 +20,7 @@ class DSLConverter(val templating: FreemarkerFactory = FreemarkerFactory()) {
                 .map { "${node.title.escaped()} -> ${it.escaped()}" }
                 .collect(Collectors.joining(" "))
         } ?: ""
-        return "${node.title.escaped()} ${node.link?.let { "[ image=${templating.elementSvg(node).toString().escaped()} href=${it.escaped()} fontcolor=blue ]" } ?: ""} $pathsToChildren \n"
+        return "${node.title.escaped()} ${node.link?.let { "[ image=${templating.elementSvg(node).toString().escaped()} label=\"\" fontcolor=blue ]" } ?: ""} $pathsToChildren \n"
     }
 
     private fun String.escaped(): String = "\"$this\""

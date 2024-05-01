@@ -4,7 +4,7 @@ import sh.hsp.techtree.GraphvizConverter
 import sh.hsp.techtree.TreeModel
 
 class SimpleGraphvizConverter(
-    private val dslConverter: DSLConverter,
+    private val dslConverter: DslConverter,
     private val commandRunner: GraphvizCommandRunner
 ) : GraphvizConverter {
     override fun convert(model: TreeModel) {
