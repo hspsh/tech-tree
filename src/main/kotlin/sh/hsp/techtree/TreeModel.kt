@@ -3,6 +3,7 @@ package sh.hsp.techtree
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 typealias ID = String
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class TreeModel(
     val nodes: List<TreeNode>
@@ -12,5 +13,5 @@ data class TreeModel(
 data class TreeNode(
     val title: ID,
     val requires: List<ID>? = null,
-    val link: String?
+    val link: String? = null
 )
