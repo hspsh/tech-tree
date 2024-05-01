@@ -20,7 +20,7 @@ class DSLConverterImpl(val templating: FreemarkerFactory = FreemarkerFactory()) 
                 .map { "${node.title.escaped()} -> ${it.escaped()}" }
                 .collect(Collectors.joining(" "))
         } ?: ""
-        return "${node.title.escaped()} ${node.link?.let { "[ image=${templating.elementSvg(node).toString().escaped()} label=\"\" fontcolor=blue ]" } ?: ""} $pathsToChildren \n"
+        return "${node.title.escaped()} [ image=${templating.elementSvg(node).toString().escaped()} label=\"\" fontcolor=blue ] $pathsToChildren \n"
     }
 
     private fun String.escaped(): String = "\"$this\""
